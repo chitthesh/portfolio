@@ -1,0 +1,42 @@
+.skillBox {
+  margin-bottom: 20px;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: #161b22;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.groupTitle {
+  margin-bottom: 15px;
+}
+
+.skillBox {
+  margin-bottom: 12px;
+}
+
+.bar {
+  height: 8px;
+  background: #30363d;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.progress {
+  height: 100%;
+  background: #58a6ff;
+  border-radius: 5px;
+}

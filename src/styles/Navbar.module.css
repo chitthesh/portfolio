@@ -1,0 +1,62 @@
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #161b22;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10%;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+}
+
+.links a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.95rem;
+}
+
+/* MENU ICON */
+.menuIcon {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .menuIcon {
+    display: block;
+  }
+
+  .links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    flex-direction: column;
+    background: #161b22;
+    width: 200px;
+    padding: 20px;
+    display: none;
+  }
+
+  .show {
+    display: flex;
+  }
+}

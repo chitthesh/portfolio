@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0d1117;
+  color: white;
+}
+
+section {
+  padding: 80px 10%;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #58a6ff;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 80px;
+}

@@ -1,0 +1,25 @@
+.card {
+  background: #161b22;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.buttons a {
+  padding: 8px 14px;
+  background: #238636;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
