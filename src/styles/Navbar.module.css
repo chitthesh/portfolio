@@ -1,62 +1,101 @@
 .nav {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  background: #161b22;
+  background: rgba(5, 5, 5, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 10%;
+  padding: 15px 5%;
   z-index: 1000;
+  transition: all 0.3s ease;
 }
 
 .logo {
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #fff, #a1a1aa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .right {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 25px;
 }
 
 .links {
   display: flex;
-  gap: 20px;
+  gap: 30px;
+  align-items: center;
 }
 
 .links a {
   text-decoration: none;
-  color: inherit;
+  color: #a1a1aa;
   font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
 }
 
-/* MENU ICON */
+.links a:hover {
+  color: var(--primary);
+}
+
+/* Hover underline effect */
+.links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
 .menuIcon {
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
+  color: #fff;
+  z-index: 1010;
 }
 
-/* 📱 MOBILE */
 @media (max-width: 768px) {
   .menuIcon {
     display: block;
   }
 
   .links {
-    position: absolute;
-    top: 60px;
-    right: 0;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 250px;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
-    background: #161b22;
-    width: 200px;
-    padding: 20px;
-    display: none;
+    justify-content: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
   }
 
   .show {
-    display: flex;
+    right: 0;
   }
 }

@@ -1,25 +1,91 @@
+.projectsSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sectionTitle {
+  margin-bottom: 50px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  width: 100%;
+}
+
 .card {
-  background: #161b22;
-  padding: 20px;
-  border-radius: 10px;
-  transition: 0.3s;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  height: 100%;
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px);
+  border-color: rgba(92, 225, 230, 0.3);
+  box-shadow: 0 10px 30px -15px rgba(92, 225, 230, 0.2);
 }
 
-.buttons {
-  margin-top: 15px;
+.cardHeader {
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
-.buttons a {
-  padding: 8px 14px;
-  background: #238636;
+.folderIcon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  filter: grayscale(100%) brightness(200%); /* Minimalist folder look */
+}
+
+.cardLinks {
+  display: flex;
+  gap: 15px;
+}
+
+.cardLinks a {
+  color: #a1a1aa;
   text-decoration: none;
-  color: white;
-  border-radius: 5px;
   font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.cardLinks a:hover {
+  color: var(--primary);
+}
+
+.projectTitle {
+  font-size: 1.4rem;
+  color: #e2e8f0;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.projectDescription {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.techList li {
+  color: #64748b;
+  font-family: monospace;
+  font-size: 0.85rem;
 }

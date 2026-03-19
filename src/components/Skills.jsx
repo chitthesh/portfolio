@@ -1,65 +1,94 @@
-import styles from "@/styles/Section.module.css";
-import skill from "@/styles/Skills.module.css";
+"use client";
+import styles from "@/styles/Skills.module.css";
+import { motion } from "framer-motion";
 
 export default function Skills() {
   const skillGroups = [
     {
-      title: "Programming",
-      skills: [
-        { name: "Java", level: "85%" },
-        { name: "JavaScript", level: "80%" },
-      ],
-    },
-    {
       title: "Frontend",
       skills: [
-        { name: "HTML", level: "90%" },
-        { name: "CSS", level: "85%" },
-        { name: "React.js", level: "75%" },
+        { name: "React.js", level: "90%" },
+        { name: "Next.js", level: "85%" },
+        { name: "JavaScript", level: "90%" },
+        { name: "HTML & CSS", level: "95%" },
+        { name: "Tailwind CSS", level: "85%" },
       ],
     },
     {
-      title: "Backend",
+      title: "Backend & DB",
       skills: [
-        { name: "Node.js", level: "70%" },
-        { name: "Express.js", level: "65%" },
+        { name: "Node.js", level: "80%" },
+        { name: "Express.js", level: "75%" },
+        { name: "MongoDB", level: "80%" },
+        { name: "Java", level: "70%" },
       ],
     },
     {
-      title: "Database & Tools",
+      title: "Tools & Others",
       skills: [
-        { name: "MongoDB", level: "70%" },
-        { name: "Git & GitHub", level: "80%" },
+        { name: "Git & GitHub", level: "85%" },
+        { name: "Framer Motion", level: "70%" },
+        { name: "REST APIs", level: "85%" },
+        { name: "Postman", level: "80%" },
       ],
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
-    <section id="skills" className={styles.altSection}>
-      <div className={styles.container}>
-        <h2 className={styles.title}>Technical Skills</h2>
+    <section id="skills" className={styles.skillsSection}>
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+        className={styles.container}
+      >
+        <motion.h2 variants={itemVariants} className={styles.sectionTitle}>
+          Technical Arsenal
+        </motion.h2>
 
-        <div className={skill.grid}>
+        <div className={styles.grid}>
           {skillGroups.map((group, index) => (
-            <div key={index} className={skill.card}>
-              <h3 className={skill.groupTitle}>{group.title}</h3>
+            <motion.div key={index} variants={itemVariants} className={`glass ${styles.card}`}>
+              <h3 className={styles.groupTitle}>{group.title}</h3>
 
-              {group.skills.map((skillItem, i) => (
-                <div key={i} className={skill.skillBox}>
-                  <span>{skillItem.name}</span>
+              <div className={styles.skillsList}>
+                {group.skills.map((skillItem, i) => (
+                  <div key={i} className={styles.skillBox}>
+                    <div className={styles.skillHeader}>
+                      <span>{skillItem.name}</span>
+                      <span className={styles.skillPercent}>{skillItem.level}</span>
+                    </div>
 
-                  <div className={skill.bar}>
-                    <div
-                      className={skill.progress}
-                      style={{ width: skillItem.level }}
-                    ></div>
+                    <div className={styles.bar}>
+                      <motion.div
+                        className={styles.progress}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: skillItem.level }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: 0.2 }}
+                      />
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

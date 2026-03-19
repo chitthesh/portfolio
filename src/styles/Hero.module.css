@@ -1,12 +1,91 @@
-.hero {
-  height: 100vh;
+.heroSection {
+  position: relative;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 10%;
+  overflow: hidden;
 }
 
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
+.backgroundGlow {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(92, 225, 230, 0.15) 0%, transparent 60%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.content {
+  max-width: 800px;
+  z-index: 2;
+}
+
+.greeting {
+  color: var(--primary);
+  font-family: monospace;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+
+.name {
+  font-size: clamp(40px, 8vw, 80px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.role {
+  font-size: clamp(30px, 6vw, 60px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #a1a1aa;
+  margin-bottom: 30px;
+  text-align: left;
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+
+.highlight {
+  color: transparent;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.description {
+  color: #a1a1aa;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 50px;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btnOutline {
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btnOutline:hover {
+  background: rgba(92, 225, 230, 0.1);
+  transform: translateY(-2px);
 }

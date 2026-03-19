@@ -1,28 +1,102 @@
+:root {
+  --background: #050505;
+  --foreground: #f4f4f5;
+  --primary: #5ce1e6;
+  --secondary: #8b5cf6;
+  --accent: #f43f5e;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.08);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
 body {
-  background: #0d1117;
-  color: white;
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-section {
-  padding: 80px 10%;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #58a6ff;
+::-webkit-scrollbar-track {
+  background: var(--background);
 }
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Selection Color */
+::selection {
+  background: rgba(92, 225, 230, 0.3);
+  color: #fff;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 section {
-  scroll-margin-top: 80px;
+  padding: 100px 5%;
+  max-width: 1400px;
+  margin: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+}
+
+/* Base button styles */
+.btn-primary {
+  padding: 12px 28px;
+  border-radius: 30px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #050505;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(92, 225, 230, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(92, 225, 230, 0.4);
 }
